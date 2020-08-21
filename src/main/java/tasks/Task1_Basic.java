@@ -1,6 +1,8 @@
 package tasks;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 class Task1_Basic {
 
@@ -17,7 +19,7 @@ class Task1_Basic {
      *    - Stream::count()
      */
     static long countEven(Collection<Integer> numbers) {
-        throw new PleaseDeleteMeAndImplement();
+        return numbers.stream().filter(e -> e % 2 == 0).count();
     }
 
     /**
@@ -33,7 +35,7 @@ class Task1_Basic {
      *    - Stream::count()
      */
     static long countLowercaseLetters(String str) {
-        throw new PleaseDeleteMeAndImplement();
+        return str.chars().filter(e -> Character.isLowerCase(e) == true).count();
     }
 
 
@@ -53,6 +55,8 @@ class Task1_Basic {
      *    - Collectors.joining()
      */
     static String replaceWordsOnLength(String str) {
-        throw new PleaseDeleteMeAndImplement();
+        return Arrays.stream(str.split("\\s+"))
+                .map(e -> Integer.toString(e.length()))
+                .collect(Collectors.joining(" ", "", ""));
     }
 }
